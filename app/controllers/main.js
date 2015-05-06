@@ -34,10 +34,9 @@ var Main = function () {
     youtubedl.getInfo(urlx, function(err, info) {
       var infox;
       if (err) {
-        self.redirect('/');
+        self.redirect();
       } else {
         infox = info;
-        console.log(infox);
       };
         self.respond({params: infox}, {
           format: 'html'
