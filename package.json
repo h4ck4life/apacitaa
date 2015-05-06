@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "author": "",
   "dependencies": {
-    "handlebars": "~3.0.3",
-    "youtube-dl": "~1.10.3"
+    "handlebars": "^3.0.3",
+    "youtube-dl": "^1.10.3",
+    "geddy": "13.0.7"
   },
   "devDependencies": {},
   "engines": {
-    "node": "0.8.x",
+    "node": "0.10.x",
     "npm": "1.4.23"
   }
 }
