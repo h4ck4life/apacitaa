@@ -1,0 +1,58 @@
+<style type="text/css">
+	body { 
+	  background: url(https://i.ytimg.com/vi/gq5LMb9KQn8/maxresdefault.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+
+</style>
+<div id="opac">
+
+<span class="highlightme" style="font-size: 70px;">ApaCitaa?!</span>
+<style type="text/css">
+	#inx {
+		padding: 15px;
+  font-size: 20px;
+  width: 710px;
+  background-color: rgb(254, 254, 254);
+  border: none;
+  color: #000000;
+  font-weight: bold;
+	}
+</style>
+
+<script type="text/javascript">
+  var youtube_parser = function(url){
+      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+      var match = url.match(regExp);
+      if (match&&match[7].length==11){
+          return match[7];
+      }else{
+          return false;
+      }
+   };
+   
+   var runScript = function(e) {
+    if (e.keyCode == 13) {
+        var tb = document.getElementById("inx");
+        var vid = youtube_parser(tb.value);
+        if(vid) {
+          location.assign("/" + vid);
+        } else {
+          alert('Oops, please input correct Youtube URL and try again.');
+        }
+        return false;
+    }
+}
+</script>
+
+<span class="highlightme" style="font-size: 20px; display: inline-block;">"Simplest Youtube Video Audio Downloader."</span>
+<div>
+
+  <div class="form-group">
+      <input id="inx" type="text" placeholder="https://www.youtube.com/watch?v=ngElkyQ6Rhs [PRESS ENTER]" class="" onkeypress="return runScript(event)">
+  </div>
+		
+</div>
