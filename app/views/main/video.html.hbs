@@ -18,24 +18,25 @@ background-size: cover;
     {{#if this.width}}
     <li>
         <a class="babu" style="color: #37FD36;" download="{{../../params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
-        [{{this.ext}}] Download Video - {{this.format}} <!-- {{#if this.filesize}}- {{this.filesize}}{{/if}} -->
+        [{{this.ext}}] Download Video - {{this.height}}p <!-- {{#if this.filesize}}- {{this.filesize}}{{/if}} -->
         </a>
     </li>
     {{else}}
     {{#if this.asr}}
     <li>
         <a class="babu" download="{{../../params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
-        [{{this.ext}}] Download Audio Only - {{this.format}}
+        [{{this.ext}}] Download Audio Only - {{this.abr}}kbps
         </a>
     </li>
     {{else}}
     <li>
         <a class="babu" style="color: #F85070;" download="{{../../params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
-        [{{this.ext}}] Download Video Only - {{this.format}}
+        [{{this.ext}}] Download Video Only {{#if this.height}} - {{this.height}}p{{/if}}
         </a>
     </li>
     {{/if}}
     {{/if}}
     {{/each}}
 </ul>
+<span class="highlightme" style="font-size: 15px; margin-left: 45px;"><a href="/{{params.display_id}}/all" style="text-decoration:none;">View All Formats</a></span>
 {{/if}}

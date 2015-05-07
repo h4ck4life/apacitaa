@@ -33,14 +33,20 @@ var Main = function() {
   this.video = function(req, resp, params) {
     var self = this;
     var urlx = 'https://www.youtube.com/watch?v=' + params.vid;
-    youtubedl.getInfo(urlx, function(err, info) {
+    var options = [];
+    youtubedl.getInfo(urlx, options, function(err, info) {
       var infox;
       if (err) {
         self.redirect();
       } else {
         infox = info;
-        //console.log(info);
+        if (params.all != 'all') {
+          infox.formats = infox.formats.filter(function(obj) {
+            return (obj.format_id == '22' || obj.format_id == '18' || obj.format_id == '37' || obj.format_id == '38' || obj.format_id == '140' || obj.format_id == '141');
+          });
+        }
       };
+      //console.log(infox);
       self.respond({
         params: infox
       }, {
