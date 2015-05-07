@@ -42,8 +42,12 @@ var Main = function() {
         infox = info;
         if (params.all != 'all') {
           infox.formats = infox.formats.filter(function(obj) {
+            // obj.acodec == 'none' || 
             return (obj.format_id == '22' || obj.format_id == '18' || obj.format_id == '37' || obj.format_id == '38' || obj.format_id == '140' || obj.format_id == '141');
           });
+          if(infox.formats.length < 1) {
+            self.redirect('/' + infox.display_id + "/all");
+          }
         }
       };
       //console.log(infox);
