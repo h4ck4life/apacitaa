@@ -14,21 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
-*/
+ */
 
-var Main = function () {
-  
+var Main = function() {
+
   var fs = require('fs');
   var youtubedl = require('youtube-dl');
-  
-  this.index = function (req, resp, params) {
-    this.respond({params: params}, {
-      format: 'html'
-    , template: 'app/views/main/index'
+
+  this.index = function(req, resp, params) {
+    this.respond({
+      params: params
+    }, {
+      format: 'html',
+      template: 'app/views/main/index'
     });
   };
-  
-  this.video = function (req, resp, params) {
+
+  this.video = function(req, resp, params) {
     var self = this;
     var urlx = 'https://www.youtube.com/watch?v=' + params.vid;
     youtubedl.getInfo(urlx, function(err, info) {
@@ -38,28 +40,28 @@ var Main = function () {
       } else {
         infox = info;
       };
-        self.respond({params: infox}, {
-          format: 'html'
-        , template: 'app/views/main/video'
-        });
+      self.respond({
+        params: infox
+      }, {
+        format: 'html',
+        template: 'app/views/main/video'
+      });
     });
 
     //youtube_parser('https://www.youtube.com/watch?v=' + params.vid);
 
   };
-  
-   var youtube_parser = function(url){
-      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-      var match = url.match(regExp);
-      if (match&&match[7].length==11){
-          return match[7];
-      }else{
-          console.log("Url incorrecta");
-      }
-   };
-  
+
+  var youtube_parser = function(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    if (match && match[7].length == 11) {
+      return match[7];
+    } else {
+      console.log("Url incorrecta");
+    }
+  };
+
 };
 
 exports.Main = Main;
-
-
