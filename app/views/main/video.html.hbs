@@ -7,31 +7,30 @@ background: url({{params.thumbnail}}) no-repeat center center fixed;
 -o-background-size: cover;
 background-size: cover;
 }
-
 </style>
 <span class="highlightme" style="font-size: 15px;"><a href="/" style="text-decoration:none;">&larr; Goto Home</a></span>
+<span class="highlightme" style="font-size: 15px;">By {{params.uploader_id}} [{{params.duration}}]</span>
 <span class="highlightme" style="font-size: 15px;">&#128190; Right Click > Choose Save As..</span>
 <br />
 <span class="highlightme" style="font-size: 40px;">{{params.title}}</span>
-
 <ul style="list-style-type: none; margin-top: 20px;" class="babu">
     {{#each params.formats}}
     {{#if this.width}}
     <li>
-        <a class="babu" style="color: #37FD36;" download="{{params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
+        <a class="babu" style="color: #37FD36;" download="{{../../params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
         [{{this.ext}}] Download Video - {{this.format}} <!-- {{#if this.filesize}}- {{this.filesize}}{{/if}} -->
         </a>
     </li>
     {{else}}
     {{#if this.asr}}
     <li>
-        <a class="babu" download="{{params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
+        <a class="babu" download="{{../../params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
         [{{this.ext}}] Download Audio Only - {{this.format}}
         </a>
     </li>
     {{else}}
     <li>
-        <a class="babu" style="color: #F85070;" download="{{params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
+        <a class="babu" style="color: #F85070;" download="{{../../params._filename}}" title="Right click -> Save As.." href="{{this.url}}">
         [{{this.ext}}] Download Video Only - {{this.format}}
         </a>
     </li>

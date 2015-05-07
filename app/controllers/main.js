@@ -39,6 +39,7 @@ var Main = function() {
         self.redirect();
       } else {
         infox = info;
+        //console.log(info);
       };
       self.respond({
         params: infox
